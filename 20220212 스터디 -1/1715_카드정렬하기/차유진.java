@@ -1,7 +1,7 @@
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-public class Main_G4_1715_카드정렬하기 {
+public class 차유진 {
 	static int N;
 	static int cnt;
 	static PriorityQueue<Integer> pq = new PriorityQueue<>();
