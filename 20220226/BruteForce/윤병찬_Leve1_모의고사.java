@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 class Solution {
+    public int[] solution(int[] answers) {
 	List<Integer> ans = new ArrayList<>();
 	int[] answer;
 	
@@ -44,4 +45,7 @@ class Solution {
 		}
 
 	return answer;
+    }
 }
+	
+
