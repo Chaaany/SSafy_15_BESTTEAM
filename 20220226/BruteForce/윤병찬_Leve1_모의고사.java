@@ -5,6 +5,7 @@ import java.util.List;
 class Solution {
 	List<Integer> ans = new ArrayList<>();
 	int[] answer;
+	
 	//학생들 패턴 저장
 	int[] student1 = {1,2,3,4,5}, student2= {2,1,2,3,2,4,2,5}, student3 = {3,3,1,1,2,2,4,4,5,5};
 
