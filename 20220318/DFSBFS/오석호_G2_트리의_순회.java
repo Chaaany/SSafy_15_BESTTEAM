@@ -41,9 +41,8 @@ public class Main {
 			}
 		}
 		
-		// 루트를 기준으로 양 옆에 몇개의 요소들이 있는지
+		// 루트를 기준으로 양 옆에 몇개의 요소들이 있는지 (왼쪽만 있으면 된다!)
 		int Lcnt = middle - in1;
-		int Rcnt = in2 - middle;
 		
 		// 루트 출력
 		System.out.print(root + " ");
