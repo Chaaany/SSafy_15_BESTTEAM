@@ -1,51 +1,58 @@
-package boj;
+import java.util.Scanner;
 
-import java.util.*;
-
-public class Boj_16928 {
-	static int N, M, ladderAndSnake[];
-	static int loc = 1;
-	static boolean[] v = new boolean[101];
+public class Main {
+	
+	static int n;
+	static int[] inorder, postorder;
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		N = sc.nextInt();
-		M = sc.nextInt();
-		ladderAndSnake = new int[107];
-
-		Queue<Integer> q = new LinkedList<>();
-		for (int i = 0; i < N; i++) {
-			int start = sc.nextInt();
-			int end = sc.nextInt();
-			if (start < end) {
-				ladderAndSnake[start] = end;
-			} else {
-
-				ladderAndSnake[end] = start;
-			}
+		inorder = new int[100001];
+		postorder = new int[100001];
+		
+		n = sc.nextInt();
+		
+		for (int i = 0; i < n; ++i) {
+			inorder[i] = sc.nextInt();
 		}
-		int idx1 = 0;
-		int idx2 = 1;
-		int[] cnt = new int[99999];
-		while (true) {
-			for (int dice = 6; dice > 0; dice--) {
-				int moveTo = loc + dice;
-				int temp = ladderAndSnake[moveTo];
-				moveTo = temp != 0 ? temp : moveTo;
+		
+		for (int i = 0; i < n; ++i) {
+			postorder[i] = sc.nextInt();
+		}
+		
+		getPreorder(0, n-1, 0, n-1);
+	}
 
-				if (moveTo <= 100) {
-					if (v[moveTo] == false) {
-						v[moveTo] = true;
-						q.add(moveTo);
-						cnt[idx2++] = cnt[idx1] + 1;
-					}
-				}
-			}
-			loc = q.poll();
-			idx1++;
-			if (loc == 100)
+	private static void getPreorder(int in1, int in2, int post1, int post2) {
+		// 종료 조건
+		if (in2 < in1 || post2 < post1) return;
+		
+		// 루트 찾기
+		int root = postorder[post2];
+		
+		// 중간 위치 저장해둘 변수
+		int middle = -1;
+		
+		// inorder에서 root 위치 찾기
+		for (int i = in1; i <= in2; ++i) {
+			if (inorder[i] == root) {
+				middle = i;
 				break;
+			}
 		}
-		System.out.println(cnt[idx1]);
+		
+		// 루트를 기준으로 양 옆에 몇개의 요소들이 있는지 (왼쪽만 있으면 된다!)
+		int Lcnt = middle - in1;
+		
+		// 루트 출력
+		System.out.print(root + " ");
+		
+		// 재귀 돌리기
+		
+		// 왼쪽 재귀
+		getPreorder(in1, middle-1, post1, post1 + Lcnt - 1);
+		
+		// 오른쪽 재귀
+		getPreorder(middle+1, in2, post1+Lcnt, post2 -1);
 	}
 }
