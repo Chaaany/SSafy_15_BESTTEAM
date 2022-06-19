@@ -1,5 +1,10 @@
 # SSAFY_15_BEST_TEAM (from Feb 8, 2022)
 [김수만](https://github.com/SumanKim) [배윤호](https://github.com/NKLCBAE) [이채연](https://github.com/potatoes-never-lie) [윤병찬](https://github.com/Chaaany) [윤혜진](https://github.com/yyhjin) [오석호](https://github.com/alittlekitten) [이홍주](https://github.com/Hongjoo22) [차유진](https://github.com/yoojincha)
+<br/><br/>
+<a href="https://github.com/Chaaany/SSafy_15_BESTTEAM/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Chaaany/SSafy_15_BESTTEAM" />
+</a>
+
 # Algorithm
 - stack/Queue 
 - LinkedList

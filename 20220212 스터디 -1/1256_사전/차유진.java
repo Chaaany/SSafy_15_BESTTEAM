@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Main_G3_1256_사전 {
+public class 차유진 {
 	static int N,M,K;
 	static char[] p;
 	static char[] word;
