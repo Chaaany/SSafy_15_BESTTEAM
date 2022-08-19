@@ -1,0 +1,1 @@
+select name from (phones as a inner join (select pn, sum(duration) as duration from (select id, caller as pn, duration from calls union select id, callee as pn, duration from calls) as n group by pn) as b on a.phone_number = b.pn) where duration >= 10;
