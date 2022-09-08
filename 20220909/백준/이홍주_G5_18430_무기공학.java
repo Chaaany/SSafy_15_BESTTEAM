@@ -38,12 +38,12 @@ public class Main {
 		if(now==3) {
 			max = Math.max(max,count);
 			// ㄴ자가 겹쳐진 모양 예외처리
-      /*
-      3 3
-      1 1 1
-      1 99 1
-      1 1 1
-      */
+			      /*
+			      3 3
+			      1 1 1
+			      1 99 1
+			      1 1 1
+			      */
 			dfs(r-dr[dir],c-dc[dir],v,0,0, count);
 			now = 0;
 		}
