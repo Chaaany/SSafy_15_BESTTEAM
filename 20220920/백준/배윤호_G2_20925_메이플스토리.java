@@ -12,10 +12,10 @@ public class Main {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken()); // 사냥터 수
 		int T = Integer.parseInt(st.nextToken()); // 주어진 시간
-		int[] c = new int[N+1];
-		int[] e = new int[N+1];
-		int[][] matrix = new int[T+1][T+1];
-		int[][] dp = new int[T+1][N+1];
+		int[] c = new int[N+1]; // 입장에 필요한 경험치
+		int[] e = new int[N+1]; // 1분당 얻는 경험치
+		int[][] matrix = new int[T+1][T+1]; // 사냥터간 이동 시간 배열
+		int[][] dp = new int[T+1][N+1]; //dp 배열
 		for (int i = 1; i <= N; i++) {
 			st = new StringTokenizer(br.readLine());
 			c[i] = Integer.parseInt(st.nextToken());
