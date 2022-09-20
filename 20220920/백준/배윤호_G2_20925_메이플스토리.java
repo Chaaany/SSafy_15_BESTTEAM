@@ -5,17 +5,17 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class MapleStroy {
+public class Main {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken()); // 사냥터 수
 		int T = Integer.parseInt(st.nextToken()); // 주어진 시간
-		int[] c = new int[201];
-		int[] e = new int[201];
-		int[][] matrix = new int[1001][1001];
-		int[][] dp = new int[1001][201];
+		int[] c = new int[N+1];
+		int[] e = new int[N+1];
+		int[][] matrix = new int[T+1][T+1];
+		int[][] dp = new int[T+1][N+1];
 		for (int i = 1; i <= N; i++) {
 			st = new StringTokenizer(br.readLine());
 			c[i] = Integer.parseInt(st.nextToken());
