@@ -49,12 +49,12 @@ public class Main {
 		for (int i = 0; i < list.size(); i++) { // 파티 숫자만큼 반복
 			for (int j = 0; j < list.get(i).size(); j++) { // 파티 구성원 수만큼 반복
 				if (set.contains(list.get(i).get(j))) { // 만약 파티원중 진실을 아는자가 있으면
-					answer--; // 그 파티는 구라를 못치므로 --
+					answer--; // 그 파티는 거짓말을 못치므로 --
 					break; // 파티가 박살났다 다음 파티 탐색하자
 				}
 			}
 		}
-		System.out.println(answer); // 구라를 칠 수 있는 파티 출력
+		System.out.println(answer); // 거짓말을 칠 수 있는 파티 출력
 
 	}
 
