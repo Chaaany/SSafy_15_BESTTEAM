@@ -25,6 +25,9 @@ public class Main_G3_23295_스터디시간정하기1 {
 		int l = 0;
 		int r = l+T;
 		int happiness = 0;
+		for(int i = l; i < r; i++) {
+			happiness += timeline[i];
+		}
 		int t = happiness;
 		while (r < latest) {
 			t = t - timeline[l] + timeline[r];
