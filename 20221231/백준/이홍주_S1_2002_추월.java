@@ -7,12 +7,10 @@ public class BJ_2002_추월 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		
-		HashMap<String, Integer> map = new HashMap<>();
 		ArrayList<String> list = new ArrayList<>();
 		
 		for (int i = 1; i <= N; i++) {
 			String str = br.readLine().trim();
-			map.put(str, i);
 			list.add(str);
 		}
 		
@@ -23,8 +21,7 @@ public class BJ_2002_추월 {
 			
 			if(!list.get(0).equals(now)) count++;
 			list.remove(now);
-		}
-		
+		}		
 		System.out.println(count);
 	}
 }
