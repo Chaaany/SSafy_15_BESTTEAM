@@ -9,19 +9,17 @@ public class BJ_2002_추월 {
 		
 		ArrayList<String> list = new ArrayList<>();
 		
-		for (int i = 1; i <= N; i++) {
-			String str = br.readLine().trim();
-			list.add(str);
-		}
+		for (int i = 0; i < N; i++) list.add(br.readLine().trim());
 		
 		int count = 0;
 		
-		for (int i = 1; i <= N; i++) {
+		for (int i = 0; i < N; i++) {
 			String now = br.readLine().trim();
 			
 			if(!list.get(0).equals(now)) count++;
 			list.remove(now);
 		}		
+		
 		System.out.println(count);
 	}
 }
