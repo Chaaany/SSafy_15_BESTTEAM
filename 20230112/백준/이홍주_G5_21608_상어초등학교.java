@@ -8,7 +8,8 @@ public class BJ_21608_상어초등학교 {
 	static int[] dr = {-1,0,0,1};
 	static int[] dc = {0,-1,1,0};
 	static ArrayList<int[]> likeList;
-
+	static PriorityQueue<int[]> pq;
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -34,20 +35,12 @@ public class BJ_21608_상어초등학교 {
 			// 비어있는 칸 중에서 좋아하는 번호 인접 많은 칸 (1)
 			if(!checkLikeNum(i)) {
 				// 여러개면 인접칸 중에서 비어있는 칸이 가장 많은 곳 (2)
-				// 여러개면 행이 가장 작은 칸 -> 열이 작은 칸 (3)
-				PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
-					@Override
-					public int compare(int[] o1, int[] o2) {
-						if(o1[0]==o2[0]) return o1[1]-o2[1];
-						else return  o1[0]-o2[0];
-					}
-				});
-				checkEmptyKan(line[i][0], pq);
+				checkEmptyKan(line[i][0]);
 			}
 		}
 		
-		int answer = 0;
 		// 만족도 조사
+		int answer = 0;
 		for (int i = 0; i < N; i++) {
 			for (int j = 0;  j < N; j++) {
 				int count=0;
@@ -66,13 +59,22 @@ public class BJ_21608_상어초등학교 {
 		System.out.println(answer);
 	}
 	
-	private static void checkEmptyKan(int x, PriorityQueue<int[]> pq) {
+	private static void checkEmptyKan(int x) {		
+		// 여러개면 행이 가장 작은 칸 -> 열이 작은 칸 (3)
+		pq = new PriorityQueue<>(new Comparator<int[]>() {
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				if(o1[0]==o2[0]) return o1[1]-o2[1];
+				else return  o1[0]-o2[0];
+			}
+		});
+		
 		for (int i = 0; i < likeList.size(); i++) {
 			if(max_count == likeList.get(i)[2]) pq.add(new int[] {likeList.get(i)[0],likeList.get(i)[1]});			
 		}
 		
 		map[pq.peek()[0]][pq.peek()[1]] = x;
-		pq.clear();	
+		pq.clear();
 	}
 	
 	private static boolean checkLikeNum(int r) {
@@ -84,11 +86,8 @@ public class BJ_21608_상어초등학교 {
 					for (int d = 0; d < 4; d++) {
 						int nr = i + dr[d];
 						int nc = j + dc[d];
-						// 비어있는 칸 중
-						if(cango(nr,nc) && map[nr][nc] == 0) {
-							// 좋아하는 번호 카운트
-							max = Math.max(max, ++checkMap[nr][nc]);
-						}
+						// 비어있는 칸 중 좋아하는 번호 카운트
+						if(cango(nr,nc) && map[nr][nc] == 0) max = Math.max(max, ++checkMap[nr][nc]);
 					}
 				}
 			}
@@ -100,7 +99,7 @@ public class BJ_21608_상어초등학교 {
 		
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				// 놓을 공간이 빈공간인지 체크
+				// 놓을 공간이 빈공간인지 체크 **(중요)
 				if(checkMap[i][j] == max && map[i][j] == 0) {		
 					// 2번 조건을 위한 주변 빈공간 개수 체크
 					int count=0;
