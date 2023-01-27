@@ -58,4 +58,6 @@ int main() {
         cin >> a >> b;
         cout << lca(a, b) << '\n';
     }
+
+    return 0;
 }
