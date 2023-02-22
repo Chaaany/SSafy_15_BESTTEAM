@@ -3,9 +3,9 @@ import java.util.*;
 
 public class BJ_1719_택배 {
 
-  // Floyd
+	// Floyd
 	static final int INF = 9999999;
-	static int tmp;
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br =  new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -38,7 +38,7 @@ public class BJ_1719_택배 {
 					if(k==j || i==j) continue;
 					if(arr[i][j] > arr[i][k]+arr[k][j]) {
 						arr[i][j] = arr[i][k]+arr[k][j];
-            // 중간지점 check
+						// 중간지점 check
 						answer[i][j] = k;					
 					}
 				}
@@ -49,24 +49,18 @@ public class BJ_1719_택배 {
 		for (int i = 1; i <= N; i++) {
 			for (int j = 1; j <= N; j++) {
 				if(i==j) sb.append("- ");
-				else if(j!=answer[i][j]) {
-					dfs(answer,i,j,answer[i][j]);
-					sb.append(tmp+" ");				
-				}
-				else sb.append(answer[i][j]+ " ");
+				else sb.append(dfs(answer,i,j,answer[i][j])+" ");
 			}
 			sb.setLength(sb.length()-1);
 			sb.append("\n");
 		}
 		System.out.print(sb.toString());
 	}
-	private static void dfs(int[][] answer, int i, int j, int k) {
-		if(j == k) {
-      // 최초 방문지
-			tmp = k;
-			return;
-		}
-		dfs(answer, i, k, answer[i][k]);
+	private static int dfs(int[][] answer, int i, int j, int k) {
+		// 최초 방문 지점
+		if(j == k) return k;
+		k = dfs(answer, i, k, answer[i][k]);
+		return k;
 	}
 
 }
