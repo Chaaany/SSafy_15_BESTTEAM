@@ -9,7 +9,7 @@ int main() {
     cin.tie(0);
     cout.tie(NULL);
 
-	  // 10986 나머지 합
+    // 10986 나머지 합
     // 누적합
 
     int n, m, input;
