@@ -11,8 +11,7 @@ public class BJ_17425_약수의합 {
 		long[] sum = new long[MAX+1];
 		
 		for (int i = 1; i <= MAX; i++) {
-			dp[i] += i;
-			for (int j = 2; j <= MAX/i; j++) {
+			for (int j = 1; j <= MAX/i; j++) {
 				if(i*j > MAX) break;
 				dp[i*j] += i;
 			}
