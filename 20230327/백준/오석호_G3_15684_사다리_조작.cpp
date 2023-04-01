@@ -33,11 +33,12 @@ void dfs(int maxCnt, int cnt) {
 		// 가로줄
 		for (int j = 1; j <= h; ++j) {
 			// 자기자신, 앞, 뒤 세로줄에는 해당 i높이에 가로선을 그을 수 없다
-			if (ladder[j][i] || ladder[j][i-1] || ladder[j][i+1]) continue;
+			if (ladder[j][i] || ladder[j][i - 1] || ladder[j][i + 1]) continue;
 			// 백트래킹
 			ladder[j][i] = true;
 			dfs(maxCnt, cnt + 1);
 			ladder[j][i] = false;
+			while (!ladder[j][i - 1] && !ladder[j][i + 1]) ++j; // 이미 놓았다면 불필요한 체크 방지
 		}
 	}
 	return;
