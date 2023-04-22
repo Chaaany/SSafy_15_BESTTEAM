@@ -11,10 +11,10 @@ int main() {
 	// 누적합
 	int m, n;
 	int arr[100001] = { 0 };
-	int ans = 0;
+	long long ans = 0;
 	cin >> m >> n;
 	for (int i = 0; i < m; ++i) cin >> arr[i];
-	int tmp = 0;
+	long long tmp = 0;
 	for (int i = 0; i < m; ++i) {
 		if (i >= n) tmp -= arr[i - n];
 		tmp += arr[i];
