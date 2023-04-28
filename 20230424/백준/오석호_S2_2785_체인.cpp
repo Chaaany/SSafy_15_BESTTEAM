@@ -24,7 +24,7 @@ int main() {
 	// 1개가 남을 때까지 연결
 	while (v.size() > 1) {
 		// 제일 작은 크기의 고리를 사용해서 고리 합치기
-		v[v.size() - 2] += v[v.size() - 1];
+		v[v.size() - 2] += v[v.size() - 1] + 1;
 		v.pop_back();
 		++ans;
 		--v[0];
@@ -33,5 +33,6 @@ int main() {
 		if (!v[0]) v.erase(v.begin());
 	}
 	cout << ans;
+
 	return 0;
 }
