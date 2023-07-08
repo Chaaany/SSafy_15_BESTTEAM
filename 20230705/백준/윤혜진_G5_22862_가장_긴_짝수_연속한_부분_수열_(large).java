@@ -36,7 +36,7 @@ public class Main {
 			// 현재가 짝수일 때
 			if(arr[right]%2 == 0) {
 				right++;
-                max = Math.max(max, right-left-cnt);
+				max = Math.max(max, right-left-cnt);
 			}
 			
 			// 현재가 홀수일 때
