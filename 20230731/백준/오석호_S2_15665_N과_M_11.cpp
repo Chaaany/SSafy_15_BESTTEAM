@@ -14,8 +14,8 @@ void backtrack(int cnt) {
 		vector<int> v;
 		for (int i = 0; i < m; ++i) {
 			v.push_back(target[i]);
-			if (v.size() == m) s.insert(v);
 		}
+		s.insert(v);
 	}
 	else {
 		for (int i = 0; i < n; ++i) {
@@ -37,10 +37,10 @@ int main() {
 	sort(arr, arr + n);
 	backtrack(0);
 
-	for (vector<int> v: s) {
+	for (vector<int> v : s) {
 		for (int i : v) cout << i << " ";
 		cout << '\n';
 	}
-	
+
 	return 0;
 }
