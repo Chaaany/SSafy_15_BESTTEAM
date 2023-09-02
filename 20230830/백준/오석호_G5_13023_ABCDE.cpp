@@ -25,7 +25,7 @@ int main() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-	// 10323 ABCDE
+	// 13023 ABCDE
 	// DFS, 그래프
 	int n, m, a, b;
 	cin >> n >> m;
