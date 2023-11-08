@@ -14,15 +14,15 @@ int main() {
 	
 	int sum = 0;
 	for (int i = 0; i < n; ++i) {
-	cin >> a;
-	sum += a;
-	arr[i + 1] = sum;
+		cin >> a;
+		sum += a;
+		arr[i + 1] = sum;
 	}
 	
 	cin >> m;
 	for (int i = 0; i < m; ++i) {
-	cin >> ii >> jj;
-	cout << arr[jj] - arr[ii - 1] << '\n';
+		cin >> ii >> jj;
+		cout << arr[jj] - arr[ii - 1] << '\n';
 	}
 
 	return 0;
