@@ -24,8 +24,6 @@ public class Main {
 			int cur = Integer.parseInt(st.nextToken());
 			if(cur == pass+1) pass = cur;
 			else stack.push(cur);
-			
-			System.out.println(pass);
 		}
 		
 		// 스택에 남은 번호 처리
