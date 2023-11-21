@@ -23,7 +23,7 @@ public class Main_S3_24511_queuestack {
 		int M = Integer.parseInt(br.readLine());
 		int[] C = new int[M];
 		stz = new StringTokenizer(br.readLine());
-		int toss, tmp;
+		
 		for(int i = 0; i < M; i++) {
 			C[i] = Integer.parseInt(stz.nextToken()); // Ci는 i번 자료구조에 삽입할 원소
 		}
