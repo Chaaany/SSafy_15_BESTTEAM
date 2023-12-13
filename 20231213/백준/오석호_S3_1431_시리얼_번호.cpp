@@ -10,8 +10,8 @@ bool cmp(string a, string b) {
 	// 자리수 합 비교
 	int aSum = 0;
 	int bSum = 0;
-	for (char c : a) if (c >= 48 && c <= 57) aSum += c;
-	for (char c : b) if (c >= 48 && c <= 57) bSum += c;
+	for (char c : a) if (c >= 48 && c <= 57) aSum += c - '0';
+	for (char c : b) if (c >= 48 && c <= 57) bSum += c - '0';
 	if (aSum != bSum) return aSum < bSum;
 	// 사전순 비교
 	return a < b;
