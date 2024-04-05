@@ -20,4 +20,4 @@ for _ in range(int(sys.stdin.readline())):
             result += score
         else:
             task.append((score,time))
-print(result)
+print(result)기
