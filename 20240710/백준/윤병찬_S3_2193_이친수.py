@@ -1,4 +1,4 @@
-def count_pinary_numbers(n):
+def count_number(n):
     if n == 1:
         return 1
     elif n == 2:
@@ -13,6 +13,5 @@ def count_pinary_numbers(n):
 
     return dp[n]
 
-# 입력 받기
 n = int(input())
-print(count_pinary_numbers(n))
+print(count_number(n))
