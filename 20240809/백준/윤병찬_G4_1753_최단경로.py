@@ -38,6 +38,5 @@ for _ in range(num_edges):
     edges.append((u, v, w))
 
 shortest_distances = dijkstra(num_nodes, edges, start_node)
-
 for node in range(1, num_nodes + 1):
     print(shortest_distances[node])
