@@ -40,4 +40,7 @@ for _ in range(num_edges):
 shortest_distances = dijkstra(num_nodes, edges, start_node)
 
 for node in range(1, num_nodes + 1):
-    print(shortest_distances[node])
+    if shortest_distances[node] == float('inf'):
+        print("INF")
+    else:
+        print(shortest_distances[node])
