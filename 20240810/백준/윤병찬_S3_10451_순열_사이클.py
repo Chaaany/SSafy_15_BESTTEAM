@@ -22,4 +22,5 @@ for _ in range(T):
     for current_node in range(1, N + 1):
         if not visited[current_node]:
             count += check_permutation_cycle(dict_value, current_node, visited)
+            
     print(count)
