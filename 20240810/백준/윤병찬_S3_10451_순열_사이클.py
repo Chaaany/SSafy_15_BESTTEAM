@@ -1,5 +1,4 @@
 # dictionary로 값 만들기
-
 count = 0
 
 def check_permutation_cycle(dict_value, current_node, visited):
