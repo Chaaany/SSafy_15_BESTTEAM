@@ -10,7 +10,7 @@
 
 def should_wait_trafic_light(total_spent_time, current_traffic_light_index, traffic_light_list):
     total_traffic_light_spent_time = traffic_light_list[current_traffic_light_index][1] + traffic_light_list[current_traffic_light_index][2]
-    tmp_time = total_spent_time % ( total_traffic_light_spent_time)
+    tmp_time = total_spent_time % ( total_traffic_light_spent_time )
     if tmp_time < traffic_light_list[current_traffic_light_index][1]:
         return (True, traffic_light_list[current_traffic_light_index][1] - tmp_time)
     else:
