@@ -7,7 +7,6 @@ def check_permutation_cycle(dict_value, current_node, visited):
     
     visited[current_node] = True
     return check_permutation_cycle(dict_value, dict_value[current_node], visited)
-    
 
 T = int(input())
 for _ in range(T):
