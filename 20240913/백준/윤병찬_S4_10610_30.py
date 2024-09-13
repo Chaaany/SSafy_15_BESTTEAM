@@ -1,18 +1,14 @@
-N = input()
+N = str(input())
 
-is_zero_included = N.find("0")
+if not "0" in N:
+    print("-1")
+    exit(0)
+list_N = list(N)
+list_N.sort(reverse=True)
 total = 0
-if is_zero_included == -1:
-    print(is_zero_included)
+for number in list_N:
+    total += int(number)
+if total % 3 == 0:
+    print("".join(list_N))
 else:
-    for number in N:
-        total += int(number)
-    if total % 3 == 0:
-        zero_index = N.index("0")
-        N = N[:zero_index] + N[zero_index + 1:] + "0"
-        print(N)
-    else:
-        print(-1)
-
-
-
+    print("-1")
