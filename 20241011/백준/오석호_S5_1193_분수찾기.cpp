@@ -6,7 +6,7 @@ int main() {
     cin.tie(0);
     cout.tie(NULL);
 
-	  // 1193 분수찾기
+    // 1193 분수찾기
     // 수학
 
     int x;
