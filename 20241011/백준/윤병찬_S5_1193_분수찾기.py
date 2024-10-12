@@ -1,21 +1,35 @@
-# X -> 대각선
-# 대각선 홀수 - 분자가 감소하고 분모가 증가
-# 대각선 짝수 -  분자가 증가하고 분모가 감소
+# 소수 빨리 찾기
 
 
-X = int(input())  
+def find_prime_number():
+    global prime_number_list
+    tmp_prime_number_list = []
+    prime_number = 2
 
-line = 1
-while X > line:
-    X -= line
-    line += 1
+    while prime_number <= 10000000:
+        if prime_number_list[prime_number]:
+            tmp_prime_number_list.append(prime_number)
+            for i in range(prime_number, 10000001, prime_number):
+                prime_number_list[i] = False
+        prime_number += 1
+    return tmp_prime_number_list
 
-if line % 2 == 0:
-    numerator = X
-    denominator = line - X + 1
-else:
-    numerator = line - X + 1
-    denominator = X
 
-print(f"{numerator}/{denominator}")
+prime_number_list = [True for _ in range(10000001)]
+prime_number_list[0], prime_number_list[1] = False, False
+prime_numbers = find_prime_number()
 
+# print(prime_numbers)
+A, B = map(int, input().split())
+
+count = 0
+for number in prime_numbers:
+    square_number = 2
+    while True:
+        if A <= number ** square_number <= B:
+            count += 1
+            square_number += 1
+        else:
+            break
+
+print(count)
