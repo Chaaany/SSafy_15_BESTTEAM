@@ -1,6 +1,4 @@
 # 소수 빨리 찾기
-
-
 def find_prime_number():
     global prime_number_list
     tmp_prime_number_list = []
@@ -33,5 +31,5 @@ for number in prime_numbers:
         if number ** square_number > B:
             break
         square_number += 1
-        
+
 print(count)
