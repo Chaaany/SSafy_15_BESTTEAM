@@ -26,7 +26,7 @@ for number in prime_numbers:
     while True:
         if A <= number ** square_number <= B:
             count += 1
-            # print(f"number: {number}, square_number: {square_number}")
+            print(f"number: {number}, square_number: {square_number}, value: {number ** square_number}")
             
         if number ** square_number > B:
             break
