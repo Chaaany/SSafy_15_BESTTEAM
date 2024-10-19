@@ -1,7 +1,9 @@
 from collections import deque
 
 def bfs(n, k):
-    global max_point, time_list, prev_point
+    max_point = 100001
+    time_list = [-1] * max_point
+    prev_point = [-1] * max_point
     
     time_list[n] = 0
     q = deque([n])
@@ -24,9 +26,7 @@ def bfs(n, k):
                 q.append(next_point)
 
 n, k = map(int, input().split())
-max_point = 100001
-time_list = [-1] * max_point
-prev_point = [-1] * max_point
+
 time, path = bfs(n, k)
 
 print(time)
