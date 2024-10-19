@@ -26,7 +26,6 @@ def bfs(n, k):
                 q.append(next_point)
 
 n, k = map(int, input().split())
-
 time, path = bfs(n, k)
 
 print(time)
