@@ -27,7 +27,7 @@ int main() {
 	queue<int> q;
 	q.push(n);
 
-	dist[n] = 1;
+	dist[n] = 1; // 0이면 아래 체크조건에 걸리니까
 	path[n] = n;
 
 	// 최단거리 찾기 전에는 무한으로 돌리기
@@ -40,22 +40,12 @@ int main() {
 		int b = tmp + 1;
 		int c = tmp - 1;
 
-		if (a >= 0 && a <= 100000 && !dist[a]) {
-			dist[a] = dist[tmp] + 1;
-			path[a] = tmp;
-			q.push(a);
-		}
-
-		if (b >= 0 && b <= 100000 && !dist[b]) {
-			dist[b] = dist[tmp] + 1;
-			path[b] = tmp;
-			q.push(b);
-		}
-
-		if (c >= 0 && c <= 100000 && !dist[c]) {
-			dist[c] = dist[tmp] + 1;
-			path[c] = tmp;
-			q.push(c);
+		for (int tmp2 : {a, b, c}) {
+			if (tmp2 >= 0 && tmp2 <= 100000 && !dist[tmp2]) {
+				dist[tmp2] = dist[tmp] + 1;
+				path[tmp2] = tmp;
+				q.push(tmp2);
+			}
 		}
 	}
 
