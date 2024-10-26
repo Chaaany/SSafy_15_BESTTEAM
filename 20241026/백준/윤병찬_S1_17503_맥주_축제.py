@@ -20,7 +20,6 @@ for _ in range(K):
     if len(drunk_beer_list) > N:
         value = heapq.heappop(drunk_beer_list)
         sum_K -= value
-
     if len(drunk_beer_list) == N and sum_K >= M:
         print(C)
         exit(0)    
