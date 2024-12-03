@@ -14,6 +14,9 @@ def find_exponent(n):
 
 T = int(input())
 
+answer = []
 for _ in range(T):
     n, m = map(int, input().split())
-    print(find_exponent(n) + m)    
+    answer.append(find_exponent(n) + m)
+    
+print("\n".join(map(str, answer)))
