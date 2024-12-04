@@ -3,6 +3,6 @@ N, M = map(int, input().split())
 
 answer = []
 for i in range(N):
-    answer.append(M + i * M)
+    answer.append(2 * M + i * M)
 
 print(" ".join(map(str, answer)))
