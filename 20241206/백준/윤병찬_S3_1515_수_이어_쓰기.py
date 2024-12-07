@@ -1,14 +1,14 @@
 import sys
 
-nums = sys.stdin.readline().rstrip()
+number = sys.stdin.readline().rstrip()
 n = 0
 index = 0
 while True:
     n += 1
     
     for s in str(n):
-        if nums[index] == s:
+        if number[index] == s:
             index += 1
-            if index >= len(nums):
+            if index >= len(number):
                 print(n)
                 exit()
