@@ -1,37 +1,51 @@
+# 진지 앞쪽 거리 = Lm ( 1 ~ 3 x 10^6 )
+# 기관총 살상력 = K( 1 ~ 100 )
+# 사거리 = M_L(1 ~ 3 x 10^6 )
+# im의 좀비 체력 Z_i 
+# 체력 0이하 = 죽음
+
+
+# X X X
+#   1 1 1
+#     1 1 1
+#       X X X
+#         X X X
+
+
+
+
+# 1 1 1
+#   1 1 1
+#     1 1 1
+#       1 1 1
+#         X X X
+#           1 1 1
+#             1 1 1 
+#               1 1 1 
+#                 X X X
+#                   1 1 1
 # 케이스
-import sys
+import sys, math
 input = sys.stdin.readline
 L = int(input())
 M_L, M_K = map(int, input().split())
 C_ammo = int(input())
 answer = 'YES'
-shooting_count = 1
-use_ammo_count = 0
-zombie_distance = 0
-for _ in range(L):
-    zombie_distance += 1
-    zombie_HP = int(input())
-    if zombie_distance <= M_L: # 초반 유효사거리 좀비 대상
-        if zombie_HP <= M_K * (shooting_count - use_ammo_count): # 기관총 살상 가능
-            shooting_count += 1
-            if use_ammo_count != 0:
-                use_ammo_count -= 1
-            continue
-        if C_ammo >= 1: # 기관총 살상 불가, 수류탄 살상 가능
-            C_ammo -= 1
-            use_ammo_count += 1
-            continue
-        answer = 'NO'
-        break
-    else: # 후반 유효사거리 좀비 대상
-        if zombie_HP <= M_K * (shooting_count - use_ammo_count): 
-            if use_ammo_count != 0:
-                use_ammo_count -= 1
-            continue
-        if C_ammo >= 1: # 기관총 살상 불가, 수류탄 살상 가능
-            use_ammo_count += 1
-            continue
-        answer = 'NO'
-        break
 
+total_damage = [0]
+
+for zombie_distance in range(1, L + 1):
+    # 초반 사거리 내의 좀비
+    zombie_HP = int(input())
+    damage = max(0, zombie_distance - M_L)
+        
+    if zombie_HP <= damage + M_K:
+        total_damage.append(total_damage[zombie_distance - 1] + M_K)
+        continue
+    if C_ammo > 0:
+        total_damage.append(total_damage[zombie_distance - 1])
+        C_ammo -= 1
+        continue
+    answer = 'NO'
+    break
 print(answer)
