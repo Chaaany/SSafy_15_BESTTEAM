@@ -25,7 +25,7 @@
 #                 X X X
 #                   1 1 1
 # 케이스
-import sys, math
+import sys
 input = sys.stdin.readline
 L = int(input())
 M_L, M_K = map(int, input().split())
@@ -37,7 +37,7 @@ total_damage = [0]
 for zombie_distance in range(1, L + 1):
     # 초반 사거리 내의 좀비
     zombie_HP = int(input())
-    damage = max(0, zombie_distance - M_L)
+    damage = total_damage[zombie_distance - 1] - total_damage[max(0, zombie_distance - M_L)]
         
     if zombie_HP <= damage + M_K:
         total_damage.append(total_damage[zombie_distance - 1] + M_K)
